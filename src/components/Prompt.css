@@ -1,0 +1,110 @@
+/* Prompt.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; /* Light background color */
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .prompt-content {
+    max-width: 600px; /* Wider container for better layout */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    background-color: #fff; /* White background for the chat box */
+  }
+  
+  .prompt-content h1 {
+    color: #333;
+    font-size: 26px; /* Slightly larger heading */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .prompt-content input {
+    width: 100%;
+    padding: 14px; /* Increased padding for comfort */
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded corners */
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Smooth border color change */
+  }
+  
+  .prompt-content input:focus {
+    border-color: #007bff; /* Highlight on focus */
+    outline: none;
+  }
+  
+  .prompt-content button {
+    width: 100%;
+    padding: 14px; /* Increased padding */
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  }
+  
+  .prompt-content button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  .prompt-content ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .prompt-content li {
+    margin-bottom: 12px; /* Space between points */
+    padding: 12px; /* Padding for list items */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f8f9fa; /* Light gray background for list items */
+    color: #333; /* Dark text for readability */
+    border-left: 4px solid #007bff; /* Accent line on the left */
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  @media (max-width: 768px) {
+    .prompt-content {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+  
+    .prompt-content h1 {
+      font-size: 22px; /* Smaller heading */
+    }
+  
+    .prompt-content input,
+    .prompt-content button {
+      font-size: 14px; /* Smaller font size for inputs and buttons */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .prompt-content {
+      padding: 10px; /* Further decrease padding */
+    }
+  
+    .prompt-content h1 {
+      font-size: 20px; /* Even smaller heading */
+    }
+  
+    .prompt-content input,
+    .prompt-content button {
+      font-size: 12px; /* Further decrease font size */
+      padding: 10px; /* Adjust padding */
+    }
+  
+    .prompt-content li {
+      font-size: 14px; /* Adjust list item font size */
+    }
+  }
+  
