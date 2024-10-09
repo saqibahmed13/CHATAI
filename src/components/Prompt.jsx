@@ -4,8 +4,7 @@ import './Prompt.css'
 
 function Prompt() {
   const [initialRes,setRes] = useState("response will be generated here!");
-  const [askQuestion,setQuestion] = useState("  ")
-
+  const [askQuestion,setQuestion] = useState(" ")
   const questionHandlers = (event) => {
     setQuestion(event.target.value)
 }
@@ -24,11 +23,16 @@ function Prompt() {
 
 
 //console.log(response.data.candidates[0].content.parts[0].text); this is to display in console
+
 const textResponse = response.data.candidates[0].content.parts[0].text
-const points = textResponse.split('**').filter(point => point.trim());
+const cleanResponse = textResponse.replace(/\*/g, '').trim();
+const points = cleanResponse.split('\n').filter(point => point.trim());
+
+// Format the response as a paragraph or list
 const formattedResponse = points.map((point, index) => (
-    <li key={index}>{point.trim()}</li>
-  ));
+  <li key={index}>{point.trim()}</li>
+));
+
 
     setRes(formattedResponse);  // this will display 
     //OR
@@ -38,13 +42,15 @@ const formattedResponse = points.map((point, index) => (
 
 
   return (
-    <>
-    <div className='prompt-content'>
+  <>
+  <div className='response-container'>
       <h1>Chat AI</h1>
       <br />
       <input type="text" placeholder='Enter the prompt'  value={askQuestion} onChange={questionHandlers}/>
       <br />
-      <button onClick={generateAnswer}>Generate Button</button>
+         <div className='input-container'>
+         <button onClick={generateAnswer}>Generate Button</button>
+         </div>
       <br />
       <pre>{initialRes}</pre>
     </div>
