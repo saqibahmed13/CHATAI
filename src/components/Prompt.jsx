@@ -25,12 +25,12 @@ function Prompt() {
 //console.log(response.data.candidates[0].content.parts[0].text); this is to display in console
 
 const textResponse = response.data.candidates[0].content.parts[0].text
-const cleanResponse = textResponse.replace(/\*/g, '').trim();
+const cleanResponse = textResponse.replace(/[^a-zA-Z0-9\s]/g, '').trim();
 const points = cleanResponse.split('\n').filter(point => point.trim());
 
 // Format the response as a paragraph or list
 const formattedResponse = points.map((point, index) => (
-  <li key={index}>{point.trim()}</li>
+  <p key={index}>{point.trim()}</p>
 ));
 
 
