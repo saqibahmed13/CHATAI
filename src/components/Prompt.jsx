@@ -45,13 +45,14 @@ const formattedResponse = points.map((point, index) => (
   <>
   <div className='response-container'>
       <h1>Chat AI</h1>
-      <br />
-      <input type="text" placeholder='Enter the prompt'  value={askQuestion} onChange={questionHandlers}/>
-      <br />
-         <div className='input-container'>
+      <input type="text" placeholder='Enter the prompt'  value={askQuestion} onChange={questionHandlers} onKeyDown={(e)=>{
+if(e.key=="Enter"){
+  generateAnswer()
+}
+      }}/>
+      <div className='input-container'>
          <button onClick={generateAnswer}>Generate Button</button>
          </div>
-      <br />
       <pre>{initialRes}</pre>
     </div>
     </>

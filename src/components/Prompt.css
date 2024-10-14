@@ -6,7 +6,7 @@
   align-items: center;
   margin: 0 auto;
   padding: 20px;
-  background-color: #3f3fb1;
+  background-color: #3f54b1;
   box-shadow: 0px 4px 10px rgba(190, 190, 190, 0.1);
   border-radius: 8px;
 }
@@ -27,6 +27,7 @@ input[type="text"] {
 
 .input-container {
   margin-top: 10px;
+
 }
 
 button {
