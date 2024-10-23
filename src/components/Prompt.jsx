@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import './Prompt.css'
+import { TextField, Button, Box, Typography } from '@mui/material';
 
 function Prompt() {
   const [initialRes,setRes] = useState("response will be generated here!");
@@ -30,7 +30,9 @@ const points = cleanResponse.split('\n').filter(point => point.trim());
 
 // Format the response as a paragraph or list
 const formattedResponse = points.map((point, index) => (
-  <p key={index}>{point.trim()}</p>
+  <Typography key={index} variant="body1" component="p" gutterBottom>
+          {point.trim()}
+        </Typography>
 ));
 
 
@@ -43,18 +45,46 @@ const formattedResponse = points.map((point, index) => (
 
   return (
   <>
-  <div className='response-container'>
-      <h1>Chat AI</h1>
-      <input type="text" placeholder='Enter the prompt'  value={askQuestion} onChange={questionHandlers} onKeyDown={(e)=>{
-if(e.key=="Enter"){
-  generateAnswer()
-}
-      }}/>
-      <div className='input-container'>
-         <button onClick={generateAnswer}>Generate Button</button>
-         </div>
-      <pre>{initialRes}</pre>
-    </div>
+<Box sx={{ padding: 2, textAlign: 'center' }}>
+      <Typography variant="h3" component="h1" gutterBottom>
+        Chat AI
+      </Typography>
+
+      {/* Flexbox container to center the TextField and Button */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center',  // Center horizontally
+        alignItems: 'center',      // Center vertically
+        gap: 2, 
+        marginBottom: 2 
+      }}>
+        <TextField
+          label="Enter the prompt"
+          variant="outlined"
+          value={askQuestion}
+          onChange={questionHandlers}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              generateAnswer();
+            }
+          }}
+          size="small"  // Decrease size of the TextField
+          sx={{ maxWidth: '400px' }}  // Optional: Set a maximum width
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          onClick={generateAnswer}
+        >
+          Generate
+        </Button>
+      </Box>
+
+      <Box sx={{ textAlign: 'left', whiteSpace: 'pre-wrap', marginTop: 2 }}>
+        {initialRes}
+      </Box>
+    </Box>
     </>
   )
 }
