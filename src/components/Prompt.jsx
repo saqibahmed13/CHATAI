@@ -12,7 +12,7 @@ function Prompt() {
   async function generateAnswer(){
     setRes("Loading")
     const response = await axios({
-      url:'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBTmv-hIZRLOGUEgCVkTZMuz9zlZ--q0WQ',
+      url:"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAdQXfYE1wK74wQqGD6NlQHNCfruRISkP0",
       method:"POST",
       data:{
         contents:[
